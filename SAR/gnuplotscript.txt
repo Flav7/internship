@@ -1,0 +1,5 @@
+set xdata time
+set format x "%M-%S"
+set timefmt "%Y-%m-%d_%H:%M:%S"
+set xrange ["2012-04-23_14:09:23":"2012-04-23_14:11:33"]
+plot 'metric:f(x) = x**7 - 77_node:23_mode:a' using 2:3 with fsteps
