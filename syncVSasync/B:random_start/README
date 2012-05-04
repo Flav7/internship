@@ -1,0 +1,45 @@
+**************************************************************************
+**************************** RUNNING SAMPLES *****************************
+**************************************************************************
+**																		**
+** 	1 : Place in the current directory where all files .rb and .sh		**	
+**     	are. Typically use "cd" cmd like --> $ cd B\:random_start/		**		
+**																		**								
+** 	2 : Run script_data_generation.sh-->$ ./script_data_generation.sh	**	
+** 	   	Problems can appear if you have not the good right. If it 		**
+**		happens, fix it with "chmod" cmd ($ chmod a+x nameFile)			**
+**		This script end itself. Just wait for "THE END !" message.		**
+**		This script can take between 2 and 4 min.						**
+**																		**
+**	3 : (optional) You can check if script_date_generation has made a	**
+**		good job. For this, use the script verifSample.sh -->			**
+**		$ ./verifSample.sh    If messages for each files is "is good"	**
+**		then there was no problem. Else, delete all sampleX dir and 	**
+**		go back to step 2.												**
+**																		**
+**	4 : Then you can run the script mean_and_sd.sh -->					**
+**		$ ./mean_and_sd.sh												**
+**		This will generate 4 files in each sampleX dir :				**
+**		-mean_A : contains the mean of each values line per line of		**
+**				  asynchronous files									**
+**		-mean_S : contains the mean of each values line per line of		**
+**				  synchronous files										**
+**		-sd_A	: contains the standard deviation of each values 		**
+**				  line per line of asynchronous files					**
+**		-sd_S	: contains the standard deviation of each values 		**
+**				  line per line of synchronous files					**
+**			  															**
+**	5 : At this step we have the means and the SDs of each sample 		**
+**		for each mode (asynchonous and synchronous). Let's summary		**
+**		it !															**
+**		First we can calculate the average of means and the standard	**
+**		deviation between them for the two modes with the following		**
+**		cmd line --> $ ./summary_mean_A.sh ; ./summary_mean_S.sh		**
+**																		**
+**		Then we can calculate the average of standard deviation and 	**
+**		the standard deviation between them for the two modes with 		**
+**		the following cmd line --> 										**
+**		$ ./summary_sd_A.sh ; ./summary_sd_S.sh							**
+**																		**
+**************************************************************************
+**************************************************************************

@@ -1,0 +1,15 @@
+plot 'summary_mean_A' title 'asynchronous' smooth unique with yerrorlines, 'summary_mean_S' title 'synchronous' smooth unique with yerrorlines
+
+plot 'summary_sd_A' title 'asynchronous' smooth unique with yerrorlines, 'summary_sd_S' title 'synchronous' smooth unique with yerrorlines
+
+set term gif
+set output "test.gif"
+plot ...
+
+or
+
+set term post
+set output "test.ps"
+plot ...
+
+set title 'title'
