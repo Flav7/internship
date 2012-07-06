@@ -1,0 +1,46 @@
+########################################################################
+## @autor : Flavien Bailly					      ##
+## date   : June 2012						      ##
+##								      ##
+## This directorie contains stuff that allow you to visualise a node  ##
+## network running on a web browser.				      ##
+##								      ##
+## It has been made thank to CYTOSCAPE WEB, a Javasript tool	      ##
+## see : http://cytoscapeweb.cytoscape.org/			      ##
+##								      ##
+## it contains 2 directories :	-> public			      ##
+##				-> views			      ##
+## and a ruby prog :		-> monitor.rb			      ##
+##								      ##
+########################################################################
+
+
+########################################################################
+#######				PUBLIC				 #######
+########################################################################
+
+This dir contains CYTOSCAPE WEB javascript scripts. They have been
+downloaded from - http://cytoscapeweb.cytoscape.org/ -
+
+You don't really need to change anything in it.
+
+########################################################################
+#######				VIEWS				 #######
+########################################################################
+
+This dir contains a HTML file. You can see inside the visualisation in
+HTML code.
+
+########################################################################
+#######				monitor.rb			 #######
+########################################################################
+
+That is the file you need to run. For this, use the following command :
+$ ruby monitor.rb myPortNum Node1PortNum Node2PortNum ... NodeNPortNum
+	-> myPortNum 	: running port of this appication
+	-> nodeXPortNum : running port of each node
+
+When this program is running, you can go to the following URL on your
+favorite Web Browser (May not work with IE - untested) :
+- http://localhost:myPortNum/ -
+

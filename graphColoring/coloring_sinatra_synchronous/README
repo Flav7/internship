@@ -1,0 +1,43 @@
+########################################################################
+## @autor : Flavien Bailly					      ##
+## date   : June 2012						      ##
+##								      ##
+## This rep contains fils for running ABT graph coloring algorithm    ##
+## in a simulated multiagent system on localhost in synchronous mode. ##
+## It has 2 rep :						      ##
+## 								      ##
+## src/  --> contains source code 				      ##
+## test/ --> contains stuff that run automatically                    ##
+########################################################################
+
+For any explanation about ABT graph coloring algorithm, please refer to
+../10.1.1.29.2945.pdf & ../bessiere03a.pdf. You may find good things
+like ABT graph coloring algorithm, explanation about nogood and explana-
+tion about agentview. You can also take a look on my internship report
+located on "../.." .
+
+########################################################################
+#######                           SRC                            #######
+########################################################################
+
+This rep contains source code.
+
+First, you can check flowchart.eps. It is a flowchart that show briefly
+how each part of code works.
+
+Then, check Action_Engine.eps. It shows how Action_Engine.rb works.
+
+Each file is documented. You can find inside how to run it.
+
+########################################################################
+#######                          TEST                            #######
+########################################################################
+
+This rep contains script that run source code itself.
+
+for example, you can run : $ ./get_picture_sync.sh
+It will use all of other script and run 50 times ABT graph coloring 
+algorithm on synchronous mode. More, it store results in "result.txt"
+file. Take a look at this script first in order to understand how this
+script set works.
+

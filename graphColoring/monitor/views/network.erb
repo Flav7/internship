@@ -1,0 +1,102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+    
+    <head>
+        <title> Current network</title>
+        
+        <!-- JSON support for IE (needed to use JS API) -->
+        <script type="text/javascript" src="/js/json2.min.js"></script>
+        
+        <!-- Flash embedding utility (needed to embed Cytoscape Web) -->
+        <script type="text/javascript" src="/js/AC_OETags.min.js"></script>
+        
+        <!-- Cytoscape Web JS API (needed to reference org.cytoscapeweb.Visualization) -->
+        <script type="text/javascript" src="/js/cytoscapeweb.min.js"></script>
+        
+        <script type="text/javascript">
+            window.onload=function() {
+                // id of Cytoscape Web container div
+                var div_id = "cytoscapeweb";
+                
+				
+                // you could also use other formats (e.g. GraphML) or grab the network data via AJAX
+		// Here, we take "$networ_json" from monitor.rb. It has good format to work with this tool.
+		var networ_json = <%= $networ_json %>;
+				
+		// Create the mapper:
+		var colorMapper = {
+			attrName: "color",
+			entries: [ 	{ attrValue: "1", value: "#FF0000" },
+					{ attrValue: "2", value: "#00FF00" },
+					{ attrValue: "3", value: "#0000FF" },
+					{ attrValue: "4", value: "#F5F500" },
+					{ attrValue: "5", value: "#F500F5" },
+					{ attrValue: "6", value: "#00F5F5" },
+					{ attrValue: "7", value: "#ff7f00" },]
+				};//Here we define real colour (using hexadecimal code) for each node color value.
+                // visual style we will use
+                var visual_style = {
+                    global: {
+                        //backgroundColor: "#8e9faf"
+                    },
+                    nodes: {
+                        shape: "ELLIPSE",
+                        label: { passthroughMapper: { attrName: "id" } } ,
+                        borderWidth: 3,
+                        borderColor: "#ffffff",
+                        size: {
+                            defaultValue: 25,
+                            continuousMapper: { attrName: "weight", minValue: 25, maxValue: 75 }
+                        },
+                        color: { discreteMapper: colorMapper },
+                        labelHorizontalAnchor: "center"
+                    },
+                    edges: {
+                        width: 3,
+                        color: "#0B94B1"
+                    }
+                };
+                
+                // initialization options
+                var options = {
+                    // where you have the Cytoscape Web SWF
+                    swfPath: "/swf/CytoscapeWeb",
+                    // where you have the Flash installer SWF
+                    flashInstallerPath: "/swf/playerProductInstall"
+                };
+                
+                // init and draw
+                var vis = new org.cytoscapeweb.Visualization(div_id, options);
+                // draw options
+                var draw_options = {
+                    // your data goes here
+                    network: networ_json,
+                    // hide pan zoom
+                    edgeLabelsVisible: true,
+                    // show edge labels too
+                    
+                    // set the style at initialisation
+                    visualStyle: visual_style,
+                    
+                    panZoomControlVisible: false 
+                };
+                
+                vis.draw(draw_options);
+            };
+        </script>
+        
+        <style>
+            /* The Cytoscape Web container must have its dimensions set. */
+            html, body { height: 100%; width: 100%; padding: 0; margin: 0; }
+            #cytoscapeweb { width: 100%; height: 100%; }
+        </style>
+    </head>
+    
+    <body>
+        <div id="cytoscapeweb">
+            Voilà
+            <%= $networ_json %>
+        </div>
+    </body>
+    
+</html>

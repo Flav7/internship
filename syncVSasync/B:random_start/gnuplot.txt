@@ -13,3 +13,6 @@ set output "test.ps"
 plot ...
 
 set title 'title'
+
+plot 'summary_mean_A' title 'asynchronous' smooth unique with yerrorlines ,
+ 'summary_mean_S' title 'synchronous' smooth unique with yerrorlines
